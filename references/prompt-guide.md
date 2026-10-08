@@ -12,8 +12,8 @@ Conteúdo: 1. As 8 lições · 2. Checklist de diagnóstico · 3. Molde · 4. Mo
 |---|---|---|---|
 | 1 | **Comece entendendo.** Perguntas sobre o código antes de editar. | Mostra o que o agente consegue sozinho e onde precisa de ajuda. | Em área desconhecida, abra com "leia X e explique como funciona hoje". |
 | 2 | **Seja específico, como com outro engenheiro.** | O agente decide melhor com detalhes do que com um desejo vago. | Troque "melhore" por o resultado, o lugar e o motivo. Prompts mais longos e falados funcionam bem. |
-| 3 | **Peça um plano antes do código.** | Uma funcionalidade grande pedida de uma vez às vezes sai certa, às vezes sai outra coisa. O plano barato evita retrabalho caro. | "Antes de escrever código, faça um plano e espere minha aprovação." Não precisa de modo especial. |
-| 4 | **Dê contexto.** Arquivos, decisões de arquitetura, comandos, estilo, histórico do Git, issues. | Quanto mais contexto, melhores as decisões. | Cite os arquivos (`@caminho`), aponte a issue ou o commit, diga a restrição e o motivo. |
+| 3 | **Planeje decisões relevantes.** | Um plano curto expõe escolhas caras antes da implementação. Pausas desnecessárias também interrompem tarefas claras. | Peça plano e aprovação quando houver arquitetura, risco, ambiguidade relevante ou expansão de escopo. |
+| 4 | **Dê contexto útil.** Arquivos, decisões de arquitetura, comandos, estilo, histórico do Git, issues. | Contexto ligado à decisão reduz suposições sem ocupar a janela com detalhes laterais. | Cite os arquivos (`@caminho`), aponte a issue ou o commit e explique restrições relevantes. |
 | 5 | **Apresente as ferramentas.** CLIs e servidores MCP do time. | O agente encadeia as ferramentas sozinho se souber que existem. | "Use `<cli>` e veja `--help` para os comandos." Não ensine o encadeamento passo a passo. |
 | 6 | **Dê um jeito de verificar e iterar.** Testes, screenshot, simulador. | Com feedback, duas ou três rodadas chegam perto do perfeito. Sem ele, o agente declara pronto no escuro. | Termine com "pronto quando `<comando ou checagem>`; itere até passar". |
 | 7 | **Confie no que o modelo já sabe.** Git, formato de commit, convenções do repo. | Explicar o óbvio gasta contexto e não melhora o resultado. | "Faça commit, push e abra um PR" basta. O agente lê o histórico para achar o formato. |
@@ -31,8 +31,8 @@ Marque cada item como ok, fraco ou ausente.
 | Contexto | O agente sabe onde mexer e por que isso importa? | Adicione arquivos, stack, issue ou a conversa que originou o pedido. |
 | Restrições | Está claro o que não fazer e quais padrões seguir? | Adicione "siga o AGENTS.md" e as proibições, com o motivo de cada uma. |
 | Verificação | Existe um comando ou checagem que prova que funcionou? | Adicione "pronto quando..." e peça para iterar até passar. |
-| Tamanho | Cabe num plano de até uns 10 passos? | Quebre em etapas (seção 5). |
-| Plano | Tarefa de vários arquivos ou ambígua pede aprovação antes de editar? | Adicione "mostre um plano e espere minha aprovação". |
+| Tamanho | O trabalho pode ser implementado e verificado como uma unidade? | Se houver resultados independentes, quebre em etapas (seção 5). |
+| Plano | Há decisão arquitetural, risco, ambiguidade relevante ou expansão de escopo? | Peça um plano curto e aprovação para a decisão; não pause só pela quantidade de arquivos. |
 | Lugar da informação | Algo permanente (comandos, convenções) está preso no prompt? | Sugira mover para o `AGENTS.md` (seção 6). |
 
 Dois ou mais itens ausentes: o prompt precisa de reescrita. Um item fraco: ajuste e explique. Todos ok: devolva igual e diga por quê.
@@ -47,7 +47,7 @@ Remova a linha que não se aplica. Um prompt pequeno continua pequeno.
 Objetivo: <resultado esperado, em 1 ou 2 frases>
 Contexto: <onde mora, arquivos @, stack, por que isso é necessário>
 Restrições: <o que não mexer, padrões a seguir, e o motivo>
-Antes de codar: leia <arquivos> e me mostre um plano curto. Espere minha aprovação.
+Antes de codar: leia <arquivos>. Se encontrar uma decisão que mude arquitetura, risco ou escopo, mostre um plano curto e espere minha aprovação.
 Pronto quando: <comando de teste, build ou checagem visual>. Itere até passar.
 Entrega: <o que reportar; commit ou PR, se quiser>
 ```
@@ -60,7 +60,7 @@ Entrega: <o que reportar; commit ou PR, se quiser>
 |---|---|
 | **Pergunta sobre código** | A pergunta, o trecho ou área, e se quer o porquê histórico (peça `git log` e `git blame`). Sem plano, sem verificação. |
 | **Mudança pequena** | Objetivo, arquivo, restrição. Sem plano; verificação em uma linha. |
-| **Funcionalidade** | Todas as linhas do molde. Plano com aprovação. |
+| **Funcionalidade** | Resultado, contexto, restrições e verificação. Plano com aprovação apenas para decisões relevantes. |
 | **Bug** | Esperado, atual, como reproduzir. Peça a causa raiz e a lista de chamadores antes de editar. Verificação: um teste que falha antes e passa depois. |
 | **Projeto novo** | Objetivo, tipo, stack ou "a mais enxuta", critério de pronto. Pode usar `/create-project`. |
 | **Interface a partir de um mock** | Imagem do mock, ferramenta de screenshot e "compare e itere até ficar igual". |
@@ -69,10 +69,10 @@ Entrega: <o que reportar; commit ou PR, se quiser>
 
 ## 5. Tamanho da tarefa
 
-- Mais de uns 10 passos, ou mais de um módulo independente: quebre em etapas, cada uma com seu critério de pronto.
+- Quando houver vários resultados independentes ou o trabalho não puder ser verificado como uma unidade, quebre em etapas com critérios de pronto.
 - Etapas independentes podem rodar em paralelo, em sessões ou checkouts separados.
 - Pedido gigante de uma vez ("implemente o sistema inteiro") vira: etapa 1 plano e esqueleto, etapa 2 núcleo com testes, etapa 3 bordas.
-- Na dúvida, comece pelo plano. É a etapa mais barata de corrigir.
+- Na dúvida sobre uma decisão relevante, comece pelo plano. Em mudança direta e reversível, prossiga e verifique.
 
 ---
 
@@ -105,7 +105,7 @@ Faz um sistema de login pro meu site.
 Objetivo: adicionar login com e-mail e senha ao site, com sessão persistente e logout.
 Contexto: o site usa [PREENCHER: stack, ex.: Express + SQLite]. Usuários ficam em [PREENCHER: tabela ou arquivo]. Siga o AGENTS.md.
 Restrições: senha sempre com hash (bcrypt ou argon2), segredos em variável de ambiente, nenhuma biblioteca de autenticação nova sem me avisar.
-Antes de codar: leia as rotas e o modelo de usuário atuais e me mostre um plano de até 10 linhas. Espere minha aprovação.
+Antes de codar: leia as rotas e o modelo de usuário atuais. Se a solução exigir mudar o modelo de dados ou adicionar uma dependência, mostre um plano curto e espere minha aprovação.
 Pronto quando: um teste cobre cadastro, login correto, login com senha errada e logout, e `npm test` passa. Itere até passar.
 Entrega: liste os arquivos alterados e o que ficou de fora.
 ```

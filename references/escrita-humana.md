@@ -2,7 +2,7 @@
 
 Fontes: **humanizer** (github.com/blader/humanizer, MIT, baseado em "Signs of AI writing", da Wikipedia) e **stop-slop** (github.com/hardikpandya/stop-slop, MIT). Os padrões foram condensados e adaptados ao português. Os exemplos são originais.
 
-Conteúdo: 1. Por que o texto de IA soa assim · 2. Os 5 sinais mais fortes · 3. Padrões por grupo · 4. Verificações rápidas · 5. Nota · 6. Texto de projeto (README, commit, comentário) · 7. Exemplos
+Conteúdo: 1. Por que o texto de IA soa assim · 2. Os 5 sinais mais fortes · 3. Padrões por grupo · 4. Verificações rápidas · 5. Diagnóstico opcional · 6. Texto de projeto (README, commit, comentário) · 7. Exemplos
 
 ---
 
@@ -16,7 +16,7 @@ O alvo é o leitor humano. Passar em detector de IA não é objetivo.
 
 ## 2. Os 5 sinais mais fortes
 
-Um único caso já justifica a edição.
+Um sinal forte já justifica revisar o trecho, mas a correção deve preservar a intenção e a voz do autor.
 
 | # | Sinal | Exemplo | Correção |
 |---|---|---|---|
@@ -74,7 +74,7 @@ Os marcados com (fraco) só contam quando vários aparecem no mesmo trecho, porq
 |---|---|---|
 | Negrito decorativo | "**KPIs**, **OKRs**" | Tire o negrito. Lista rotulada com negrito vira prosa. |
 | Título decorativo | "🚀 Fase de Lançamento:", "A decisão, em uma tela" | Caixa de frase, sem emoji nem seta; diga o que a seção contém. |
-| Aspas curvas (fraco) | “o projeto” | Aspas retas. |
+| Aspas inconsistentes (fraco) | Mistura de “aspas” e `"aspas"` sem motivo | Siga a convenção do texto ou do projeto. |
 | Emoji de enfeite | ✨🚀 | Remova. |
 
 ### E. Sobras do chat e do rascunho
@@ -111,9 +111,9 @@ Antes de entregar prosa:
 
 ---
 
-## 5. Nota
+## 5. Diagnóstico opcional
 
-Dê de 1 a 10 em cada dimensão, antes e depois. Abaixo de 35 de 50, revise de novo.
+Use esta avaliação somente com `--diagnostico` ou quando o usuário pedir. Dê de 1 a 10 em cada dimensão antes e depois e trate o resultado como heurística, não como medida objetiva. Uma pontuação baixa indica que vale reler o texto; não obriga uma nova reescrita se ela apagaria a voz do autor.
 
 | Dimensão | Pergunta |
 |---|---|
