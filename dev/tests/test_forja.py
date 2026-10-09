@@ -2,7 +2,7 @@
 
 Roda com a biblioteca padrão do Python, sem instalar nada:
 
-    python3 -m unittest discover -s tests -v
+    python3 -m unittest discover -s dev/tests -v
 
 Cada teste aplica uma regra que a própria Forja exige dos projetos que analisa
 ou cria: referências que existem, documentação que bate com o código, prosa sem
@@ -13,7 +13,7 @@ import re
 import unittest
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 SKILL = ROOT / "SKILL.md"
 README = ROOT / "README.md"
 REFS = ROOT / "references"

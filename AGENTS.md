@@ -4,17 +4,18 @@
 
 ## Contexto
 - Objetivo: skill para agentes de código com seis comandos (analisar, entender, create-project, prompt, humanizar, ponytail).
-- Conteúdo: Markdown em português do Brasil. O único código é o validador em `tests/`.
+- Conteúdo: Markdown em português do Brasil. O único código é o validador em `dev/tests/`.
 - Stack: Python 3 com a biblioteca padrão. Sem dependências.
 
 ## Comandos
-- Testar: `python3 -m unittest discover -s tests -v`
+- Testar: `python3 -m unittest discover -s dev/tests -v`
 
 ## Mapa do projeto
 - `SKILL.md`: descoberta, roteamento, opções, permissões e regras compartilhadas. É a fonte da verdade.
 - `references/<comando>.md`: procedimento de cada comando.
 - `references/boas-praticas.md`, `agents-template.md`, `stacks-minimos.md`, `prompt-guide.md`, `escrita-humana.md`: guias carregados sob demanda.
-- `tests/test_forja.py`: validador de coerência.
+- `dev/tests/test_forja.py`: validador de coerência. Fica fora da skill de propósito: não é instrução para o agente.
+- `.github/workflows/test.yml`: roda o validador a cada push e pull request.
 - `NOTICE`: avisos de copyright dos projetos MIT que a Forja adapta. Todo projeto creditado no README precisa de um aviso aqui.
 - `CLAUDE.md`: uma linha, `@AGENTS.md`, para o Claude Code ler este arquivo.
 
@@ -34,5 +35,5 @@
 - Antes de concluir qualquer mudança, rode o comando de teste acima e confirme que não há falhas.
 
 ## Armadilhas
-- `escrita-humana.md` cita as palavras vetadas, então o validador a isenta do filtro de vocabulário. Ao acrescentar uma palavra à linha "Palavras de IA", acrescente a raiz dela em `BANNED_STEMS`, em `tests/test_forja.py`.
+- `escrita-humana.md` cita as palavras vetadas, então o validador a isenta do filtro de vocabulário. Ao acrescentar uma palavra à linha "Palavras de IA", acrescente a raiz dela em `BANNED_STEMS`, em `dev/tests/test_forja.py`.
 - O README lista a estrutura do repositório. Criar ou remover um arquivo visível exige atualizar a árvore.

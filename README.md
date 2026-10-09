@@ -147,10 +147,10 @@ As regras que valem para todos os comandos estão na seção "Regras compartilha
 ## Testes
 
 ```bash
-python3 -m unittest discover -s tests -v
+python3 -m unittest discover -s dev/tests -v
 ```
 
-O validador usa só a biblioteca padrão do Python. Ele confere que o frontmatter é válido, que cada referência existe e é carregada, que o README bate com o repositório e com as opções do `argument-hint`, que as tabelas estão íntegras e que a prosa passa pelo próprio filtro de `references/escrita-humana.md`.
+O validador fica em `dev/`, fora da skill: o agente nunca carrega essa pasta. Ele usa só a biblioteca padrão do Python. Ele confere que o frontmatter é válido, que cada referência existe e é carregada, que o README bate com o repositório e com as opções do `argument-hint`, que as tabelas estão íntegras e que a prosa passa pelo próprio filtro de `references/escrita-humana.md`.
 
 ## Contribuir
 
@@ -178,11 +178,12 @@ forja/
 │   ├── stacks-minimos.md
 │   ├── prompt-guide.md
 │   └── escrita-humana.md
-└── tests/
-    └── test_forja.py
+└── dev/
+    └── tests/
+        └── test_forja.py
 ```
 
-O `SKILL.md` contém apenas descoberta, roteamento, opções, permissões e regras compartilhadas. Cada comando carrega a própria referência e só os guias de que precisa.
+O `SKILL.md` contém apenas descoberta, roteamento, opções, permissões e regras compartilhadas. A pasta `dev/` é só para manutenção do repositório. Cada comando carrega a própria referência e só os guias de que precisa.
 
 ## Limitações
 
@@ -198,7 +199,7 @@ O `SKILL.md` contém apenas descoberta, roteamento, opções, permissões e regr
 - [ponytail](https://github.com/DietrichGebert/ponytail), MIT: simplicidade deliberada e atalhos com limite explícito.
 - [humanizer](https://github.com/blader/humanizer), MIT: sinais recorrentes de prosa gerada por IA.
 - [stop-slop](https://github.com/hardikpandya/stop-slop), MIT: revisão de ritmo e preenchimento verbal.
-- Palestra "[Mastering Claude Code in 30 minutes](https://www.youtube.com/watch?v=XFYUKBPfUMw)", de Boris Cherny (Anthropic): contexto, planejamento proporcional e verificação em prompts para agentes.
+- Palestra "Mastering Claude Code in 30 minutes", de Boris Cherny (Anthropic): contexto, planejamento proporcional e verificação em prompts para agentes.
 
 Os avisos de copyright originais estão em `NOTICE`. A Forja não é afiliada aos projetos ou organizações citados.
 
