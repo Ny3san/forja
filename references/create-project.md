@@ -4,18 +4,19 @@ Crie um projeto pequeno ou médio dentro de uma pasta nova. Não altere uma past
 
 ## Antes de criar
 
-- Se o destino existir e não estiver vazio, pare e peça outro caminho ou autorização específica.
+- O destino é `./<nome>`, a partir do diretório de trabalho, salvo se o usuário informar outro caminho. Se o nome estiver vazio ou tiver `/`, `\` ou `..`, peça outro.
+- Se o destino existir e não estiver vazio, pare e peça outro caminho ou uma autorização específica.
 - Extraia do pedido: objetivo, tipo de projeto, restrições e critério de pronto.
-- Use `stacks-minimos.md` para escolher a menor stack compatível com os requisitos e com o ambiente disponível.
-- Pergunte antes quando faltar uma decisão que altere arquitetura, dados, autenticação, pagamento, multi-tenant ou dependências relevantes.
-- Com `--plano`, mostre o plano e espere aprovação. Sem a opção, siga após comunicar escolhas relevantes.
+- Use `stacks-minimos.md` para escolher a menor stack compatível com os requisitos e com o ambiente. Confirme que o runtime existe (por exemplo, `python3 --version`). Se não existir, diga isso e proponha a stack disponível; não instale runtimes sem autorização.
+- Pergunte antes quando faltar uma decisão que altere arquitetura, dados, autenticação, pagamento, multi-tenant ou dependências de produção.
+- Com `--plano`, mostre o plano e espere aprovação. Sem a opção, siga depois de comunicar as escolhas relevantes.
 
 ## Criar
 
 Inclua somente o necessário para instalar, executar e verificar:
 
 - código de entrada e módulos exigidos pelo objetivo;
-- `README.md` curto com comandos confirmados;
+- `README.md` curto com comandos confirmados e a versão do runtime em que a validação rodou. Não declare uma faixa de versões que você não testou;
 - `.gitignore` e `.editorconfig` adequados;
 - `.env.example` apenas quando houver configuração externa;
 - `AGENTS.md` curto com fatos do projeto;
@@ -25,9 +26,18 @@ Não adicione CI, Docker, banco, autenticação, framework ou biblioteca sem req
 
 ## Validar
 
-Execute os comandos documentados de instalação, teste ou verificação, build quando existir e uma execução mínima. Corrija enquanto houver uma hipótese nova e progresso observável. Se uma falha se repetir sem nova hipótese, pare e informe comando, saída relevante e o que não foi validado.
+Instalar dependências executa código de terceiros. Declare os pacotes antes de instalar, instale dentro do projeto (ambiente virtual ou `node_modules`) e não use instalação global.
+
+Execute os comandos documentados de instalação, teste ou verificação, o build quando existir e uma execução mínima. Siga a regra de verificação do `SKILL.md`: cada nova tentativa precisa de uma hipótese nova, e três tentativas sem sucesso encerram o trabalho com um relatório.
 
 ## Relatório
 
-Informe stack e versões observadas, comandos para rodar e testar, arquivos criados, validações executadas e itens deliberadamente omitidos com o gatilho para adicioná-los.
-
+```text
+Stack: <linguagem e versões observadas>
+Rodar: <comando>
+Testar: <comando>
+Arquivos criados: <lista>
+Validado: <comandos executados e resultado>
+Não validado: <o que ficou de fora e por quê>
+Omitido de propósito: <item> (adicionar quando <gatilho>)
+```

@@ -2,6 +2,8 @@
 
 Use somente em `/create-project` ou em `/analisar --agents`. O arquivo deve conter fatos e decisões específicas que um agente não descobre com facilidade lendo o código.
 
+O agente lê este arquivo em toda sessão. Mantenha-o em até cerca de 150 linhas: o excesso dilui as regras que importam.
+
 Remova seções vazias. Não copie políticas genéricas de segurança, Git, testes ou estilo. Em monorepo, a raiz contém regras comuns; arquivos de módulo existem apenas com `--agents=modules` e registram diferenças locais.
 
 ```markdown
@@ -51,3 +53,5 @@ Omita comandos inexistentes. Não invente scripts.
 ```
 
 Se um dado não puder ser confirmado e ainda for útil, marque `(inferido)` e diga como confirmá-lo. Não use “Não identificado” para preencher campos dispensáveis; remova o campo.
+
+O Claude Code lê `CLAUDE.md`, não `AGENTS.md`. Para ligar os dois, o `CLAUDE.md` pode conter apenas a linha `@AGENTS.md`, escrita sem crases dentro do arquivo: o Claude Code ignora imports dentro de crases.

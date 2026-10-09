@@ -1,6 +1,6 @@
 # Guia de prompts (base do /prompt)
 
-Fonte: palestra de Boris, da Anthropic, sobre dicas práticas para usar o Claude Code. As lições valem para qualquer agente de código. Este guia as transforma em critérios para diagnosticar e reescrever um prompt.
+Inspirado na palestra "Mastering Claude Code in 30 minutes", de Boris Cherny, da Anthropic. O guia adapta ideias da palestra e acrescenta critérios próprios, então nem todo item abaixo vem dela. As lições valem para qualquer agente de código e viram critérios para diagnosticar e reescrever um prompt.
 
 Conteúdo: 1. As 8 lições · 2. Checklist de diagnóstico · 3. Molde · 4. Moldes por tipo de tarefa · 5. Tamanho da tarefa · 6. Onde cada informação mora · 7. Exemplos · 8. O que evitar
 

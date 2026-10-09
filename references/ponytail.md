@@ -18,10 +18,16 @@ Não troque segurança, validação, acessibilidade, tratamento de erro ou requi
 ## Níveis
 
 - `lite`: faça o pedido e cite uma alternativa menor quando ela for relevante.
-- `full`: escolha a menor solução completa e explique apenas decisões que afetam manutenção ou risco.
+- `full`: escolha a menor solução completa e explique apenas as decisões que afetam manutenção ou risco.
 - `ultra`: questione requisitos dispensáveis e prefira remover antes de adicionar, sem descumprir o resultado confirmado pelo usuário.
 
-Em correções, procure os chamadores antes de editar e resolva a causa comum. Lógica não trivial deixa uma verificação pequena usando a infraestrutura existente ou a stdlib.
+Exemplo, para "adicione um cache às respostas da API":
+
+- `lite`: o cache pedido, mais uma linha: "`functools.lru_cache` resolve isso sem classe própria, se você preferir."
+- `full`: `@lru_cache(maxsize=1000)` na função de busca. Omitido: classe de cache própria.
+- `ultra`: "Sem cache por enquanto: nada mostra que a busca é lenta. Quando mostrar, `@lru_cache` resolve."
+
+Em correções, procure os chamadores antes de editar e resolva a causa comum. Lógica não trivial deixa uma verificação pequena, usando a infraestrutura existente ou a stdlib.
 
 Marque um atalho conhecido somente quando o limite não estiver evidente no código:
 

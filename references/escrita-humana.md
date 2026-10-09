@@ -12,6 +12,8 @@ Um modelo de linguagem escolhe o que vem a seguir de um jeito que serve para o m
 
 O alvo é o leitor humano. Passar em detector de IA não é objetivo.
 
+O catálogo está em português. Em outro idioma, valem os princípios (afirmar em vez de anunciar, cortar enchimento, variar o ritmo), não as palavras da lista.
+
 ---
 
 ## 2. Os 5 sinais mais fortes
@@ -72,7 +74,7 @@ Os marcados com (fraco) só contam quando vários aparecem no mesmo trecho, porq
 
 | Padrão | Exemplo | Correção |
 |---|---|---|
-| Negrito decorativo | "**KPIs**, **OKRs**" | Tire o negrito. Lista rotulada com negrito vira prosa. |
+| Negrito decorativo | "**KPIs**, **OKRs**" | Tire o negrito. Em prosa, lista rotulada com negrito vira frases. Rótulo de definição em tabela ou glossário pode ficar. |
 | Título decorativo | "🚀 Fase de Lançamento:", "A decisão, em uma tela" | Caixa de frase, sem emoji nem seta; diga o que a seção contém. |
 | Aspas inconsistentes (fraco) | Mistura de “aspas” e `"aspas"` sem motivo | Siga a convenção do texto ou do projeto. |
 | Emoji de enfeite | ✨🚀 | Remova. |

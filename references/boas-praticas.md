@@ -42,9 +42,11 @@ Não dê nota numérica por padrão. Se o usuário pedir, pontue de 0 a 10 somen
 Para cada achado, informe:
 
 1. pilar e status;
-2. evidência em `arquivo:linha`;
+2. evidência em `arquivo:linha`. Para a ausência de algo (por exemplo, sem testes), a evidência é a busca feita: onde procurou e o que não achou;
 3. impacto observável;
 4. severidade;
 5. menor correção suficiente.
+
+O formato de um problema está em `analisar.md`.
 
 Não marque como problema a ausência de uma prática que o projeto não precisa. Não recomende framework, camada, teste, documento ou pipeline apenas para preencher o checklist.
