@@ -198,7 +198,7 @@ O `SKILL.md` contém apenas descoberta, roteamento, opções, permissões e regr
 - [ponytail](https://github.com/DietrichGebert/ponytail), MIT: simplicidade deliberada e atalhos com limite explícito.
 - [humanizer](https://github.com/blader/humanizer), MIT: sinais recorrentes de prosa gerada por IA.
 - [stop-slop](https://github.com/hardikpandya/stop-slop), MIT: revisão de ritmo e preenchimento verbal.
-- Palestra "Mastering Claude Code in 30 minutes", de Boris Cherny (Anthropic): contexto, planejamento proporcional e verificação em prompts para agentes.
+- Palestra "[Mastering Claude Code in 30 minutes](https://www.youtube.com/watch?v=XFYUKBPfUMw)", de Boris Cherny (Anthropic): contexto, planejamento proporcional e verificação em prompts para agentes.
 
 Os avisos de copyright originais estão em `NOTICE`. A Forja não é afiliada aos projetos ou organizações citados.
 
