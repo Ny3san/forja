@@ -8,7 +8,7 @@
 - Stack: Python 3 com a biblioteca padrão. Sem dependências.
 
 ## Comandos
-- Testar: `python3 -m unittest discover -s dev/tests -v`
+- Testar: `python3 -m unittest discover -s dev/tests -t dev/tests -v`
 
 ## Mapa do projeto
 - `SKILL.md`: descoberta, roteamento, opções, permissões e regras compartilhadas. É a fonte da verdade.

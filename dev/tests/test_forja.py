@@ -2,7 +2,7 @@
 
 Roda com a biblioteca padrão do Python, sem instalar nada:
 
-    python3 -m unittest discover -s dev/tests -v
+    python3 -m unittest discover -s dev/tests -t dev/tests -v
 
 Cada teste aplica uma regra que a própria Forja exige dos projetos que analisa
 ou cria: referências que existem, documentação que bate com o código, prosa sem

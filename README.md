@@ -147,7 +147,7 @@ As regras que valem para todos os comandos estão na seção "Regras compartilha
 ## Testes
 
 ```bash
-python3 -m unittest discover -s dev/tests -v
+python3 -m unittest discover -s dev/tests -t dev/tests -v
 ```
 
 O validador fica em `dev/`, fora da skill: o agente nunca carrega essa pasta. Ele usa só a biblioteca padrão do Python. Ele confere que o frontmatter é válido, que cada referência existe e é carregada, que o README bate com o repositório e com as opções do `argument-hint`, que as tabelas estão íntegras e que a prosa passa pelo próprio filtro de `references/escrita-humana.md`.
