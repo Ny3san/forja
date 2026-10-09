@@ -20,7 +20,7 @@ Inferido: <o que se deduz sem prova direta, se houver>
 Não confirmado: <o que não foi possível verificar, se houver>
 ```
 
-Exemplo, para "por que `cobrar()` recebe 15 argumentos?":
+Exemplo (ilustração), para "por que `cobrar()` recebe 15 argumentos?":
 
 ```text
 A função cresceu por acréscimo: cada argumento entrou com um tipo de cobrança novo.

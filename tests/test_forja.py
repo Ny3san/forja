@@ -277,6 +277,10 @@ class Structure(unittest.TestCase):
                     self.assertEqual(line, line.rstrip(), f"{path.name}:{number} tem espaço no fim")
                     self.assertNotIn("\t", line, f"{path.name}:{number} tem tabulação")
 
+    def test_ci_runs_with_minimal_permissions(self):
+        workflow = read(ROOT / ".github" / "workflows" / "test.yml")
+        self.assertTrue("permissions:\n  contents: read" in workflow, "workflow sem permissions: contents: read")
+
     def test_repository_follows_its_own_create_project_standard(self):
         for name in ("AGENTS.md", ".editorconfig", ".gitignore", "LICENSE", "README.md"):
             with self.subTest(file=name):
@@ -310,6 +314,13 @@ class Prose(unittest.TestCase):
 
     def test_no_not_x_is_y(self):
         self.lint([NOT_X_IS_Y.pattern.replace(r"\b", "")], "construção 'não é X, é Y'", flags=0)
+
+    def test_fictional_examples_say_they_are_illustrations(self):
+        for path in md_files():
+            for number, line in enumerate(read(path).split("\n"), 1):
+                if line.startswith("Exemplo") and "(ilustração)" not in line:
+                    with self.subTest(file=path.name, line=number):
+                        self.fail(f"{path.name}:{number} exemplo sem o aviso '(ilustração)'")
 
     def test_no_em_dash_outside_the_catalog(self):
         for path in md_files():

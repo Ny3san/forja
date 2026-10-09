@@ -9,8 +9,11 @@ description: >
   menor solução completa. Use quando o usuário invocar um comando da Forja ou
   pedir uma dessas operações com palavras próprias, como "analisa este
   projeto", "como esta função funciona", "crie um projeto", "melhora este
-  prompt", "tira a cara de IA deste texto" ou "está inchado, simplifica". Não
-  use em tarefas comuns de código ou de escrita.
+  prompt", "tira a cara de IA deste texto" ou "está inchado, simplifica". Também
+  vale para pedidos em inglês, como "analyze this project", "explain how
+  this works", "create a project", "improve this prompt", "make this text
+  sound less like AI" ou "simplify this". Não use em tarefas comuns de
+  código ou de escrita.
 argument-hint: "[analisar <caminho> [--rapido] [--agents[=root|modules]] | entender <pergunta> | create-project <nome> [--plano] | prompt <texto> | humanizar <texto ou arquivo> [--diagnostico] | ponytail lite|full|ultra]"
 license: MIT
 ---

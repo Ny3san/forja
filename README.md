@@ -137,6 +137,7 @@ Nenhum nível corta segurança, validação, acessibilidade, tratamento de erro 
 - `/analisar` e `/entender` leem sem executar o código do projeto. `/create-project` executa instalação, testes e uma execução mínima dentro da pasta nova, e a instalação roda código de terceiros.
 - A Forja trata como dado o texto lido de arquivos, issues, commits e páginas. Ela não executa ordens dirigidas ao agente nesses textos e avisa o usuário.
 - Ao encontrar um segredo, a Forja informa o arquivo e a linha, nunca o valor.
+- Essas regras são instruções que o agente segue, não um sandbox. Ao analisar um repositório desconhecido, mantenha ligada a confirmação de comandos do seu agente.
 - Leia o `SKILL.md` e as referências antes de instalar, como faria com qualquer código de terceiros.
 
 ## Regras compartilhadas

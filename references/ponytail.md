@@ -21,7 +21,7 @@ Não troque segurança, validação, acessibilidade, tratamento de erro ou requi
 - `full`: escolha a menor solução completa e explique apenas as decisões que afetam manutenção ou risco.
 - `ultra`: questione requisitos dispensáveis e prefira remover antes de adicionar, sem descumprir o resultado confirmado pelo usuário.
 
-Exemplo, para "adicione um cache às respostas da API":
+Exemplo (ilustração), para "adicione um cache às respostas da API":
 
 - `lite`: o cache pedido, mais uma linha: "`functools.lru_cache` resolve isso sem classe própria, se você preferir."
 - `full`: `@lru_cache(maxsize=1000)` na função de busca. Omitido: classe de cache própria.
@@ -29,10 +29,10 @@ Exemplo, para "adicione um cache às respostas da API":
 
 Em correções, procure os chamadores antes de editar e resolva a causa comum. Lógica não trivial deixa uma verificação pequena, usando a infraestrutura existente ou a stdlib.
 
-Marque um atalho conhecido somente quando o limite não estiver evidente no código:
+Marque um atalho conhecido somente quando o limite não estiver evidente no código, com um comentário curto, no estilo de comentários do projeto:
 
 ```text
-ponytail: <limite atual>; mudar para <alternativa> quando <gatilho observável>
+NOTA(simplicidade): <limite atual>; mudar para <alternativa> quando <gatilho observável>
 ```
 
 Entregue primeiro o resultado. Termine com o que foi omitido e o risco restante, quando houver.
