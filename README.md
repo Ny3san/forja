@@ -80,9 +80,9 @@ python3 tests/test_forja.py
 
 ## Credits and honesty
 
-- Ponytail (DietrichGebert/ponytail, MIT): decision ladder, "lazy but never negligent", tests for risky logic, `shortcut:` markers, review, audit and debt shapes.
-- Humanizer (blader/humanizer, MIT) and Wikipedia's "Signs of AI writing": the 26-pattern taxonomy and the draft, critique, final process, rewritten in Forja's own words.
-- Graft (trailhq/Graft, MIT): optional code graph.
+- [Ponytail](https://github.com/DietrichGebert/ponytail) (DietrichGebert/ponytail, MIT): decision ladder, "lazy but never negligent", tests for risky logic, `shortcut:` markers, review, audit and debt shapes.
+- [Humanizer](https://github.com/blader/humanizer) (blader/humanizer, MIT) and Wikipedia's "Signs of AI writing": the 26-pattern taxonomy and the draft, critique, final process, rewritten in Forja's own words.
+- [Graft](https://github.com/trailhq/Graft) (trailhq/Graft, MIT): optional code graph.
 
 The savings and accuracy figures published by those projects are their own measurements. Forja has no benchmark of its own yet.
 
