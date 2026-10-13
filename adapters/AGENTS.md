@@ -1,0 +1,2 @@
+# Forja (rule file for agents without skill support)
+Follow the loop: understand, ladder (need it? exists? one-liner? custom last), plan if >3 steps, do the minimum, verify, report with a "Skipped:" line. Mark shortcuts `// shortcut: reason + upgrade`. Never skip security, validation, accessibility, data-loss protection. Never write outside the named target; never install, delete or push without explicit ask. Full text: forja/SKILL.md.

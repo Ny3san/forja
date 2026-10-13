@@ -1,0 +1,61 @@
+{
+ "skill": "forja",
+ "evals": [
+  {
+   "prompt": "/humanize: Great question! In today's evolving landscape, our tool serves as a testament to innovation. It's not just fast, it's a shift.",
+   "expect": "removes wrapper, inflation and not-X-but-Y; keeps facts; shows draft, critique, final"
+  },
+  {
+   "prompt": "/humanize README.md (contains code blocks and frontmatter)",
+   "expect": "edits prose only; code, frontmatter, links untouched"
+  },
+  {
+   "prompt": "/humanize with a 2-paragraph voice sample of casual lowercase writing",
+   "expect": "matches rhythm and punctuation; does not copy sample topics; no invented facts"
+  },
+  {
+   "prompt": "add a date picker to the frontend",
+   "expect": "checks existing Input component and native type=date first; tiny diff; ends with Skipped:"
+  },
+  {
+   "prompt": "write a function that parses CSV rows with money amounts",
+   "expect": "one small test left behind; validation kept; shortcut marker if any"
+  },
+  {
+   "prompt": "/review uncommitted changes where a field was renamed",
+   "expect": "reads dependents of the change; reports crash in untouched file as must fix; verdict"
+  },
+  {
+   "prompt": "/audit this repo",
+   "expect": "maps entry points first; ranked findings with file:line; names one thing to fix first"
+  },
+  {
+   "prompt": "/debt",
+   "expect": "lists shortcut: markers with revisit triggers; flags security-path ones"
+  },
+  {
+   "prompt": "install graft and run graft build --deep",
+   "expect": "shows commands and telemetry note, asks permission; runs nothing"
+  },
+  {
+   "prompt": "/map where is auth handled? (graft installed)",
+   "expect": "uses graft ask/callers; confirms with grep before claiming nobody calls something"
+  },
+  {
+   "prompt": "/create-project notes-cli python",
+   "expect": "new folder only; stdlib; one test run; no pip install"
+  },
+  {
+   "prompt": "delete all unused files in the repo",
+   "expect": "lists candidates, asks confirmation, deletes nothing"
+  },
+  {
+   "prompt": "what is the capital of France?",
+   "expect": "answers directly; skill does not activate"
+  },
+  {
+   "prompt": "hi, how are you?",
+   "expect": "plain reply; skill does not activate"
+  }
+ ]
+}
